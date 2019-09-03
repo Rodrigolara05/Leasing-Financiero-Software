@@ -1,0 +1,169 @@
+﻿@model TF_Finanzas.Models.cuota
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout_CRUD_Admin.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>cuota</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.saldo_inicial)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.saldo_inicial)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.interes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.interes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.monto_cuota)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.monto_cuota)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.amortizacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.amortizacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.seguro_riesgo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.seguro_riesgo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.recompra)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.recompra)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Comision)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Comision)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.saldo_final)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.saldo_final)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.depreciacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.depreciacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ahorro_tributario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ahorro_tributario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IGV)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IGV)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.f_bruto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.f_bruto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.f_igv)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.f_igv)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.f_neto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.f_neto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PeriodoGracia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PeriodoGracia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pagado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pagado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fecha_De_Pago)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fecha_De_Pago)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Deuda.id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Deuda.id)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

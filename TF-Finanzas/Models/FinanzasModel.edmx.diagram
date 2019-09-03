@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7d67e5aa66a1442e81fbe512cb03b85e" Name="Diagram1">
+        <EntityTypeShape EntityType="FinanzasModel.Tipo_usuario" Width="1.5" PointX="0.75" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinanzasModel.Usuario" Width="1.5" PointX="3" PointY="2.25" />
+        <AssociationConnector Association="FinanzasModel.FK_Usuario_Tipo_usuario" />
+        <EntityTypeShape EntityType="FinanzasModel.Periodo_gracia" Width="1.5" PointX="8.125" PointY="0.5" />
+        <EntityTypeShape EntityType="FinanzasModel.Bien" Width="1.5" PointX="5.25" PointY="2.5" />
+        <AssociationConnector Association="FinanzasModel.FK_Bien_Usuario" />
+        <EntityTypeShape EntityType="FinanzasModel.cuota" Width="1.5" PointX="12.625" PointY="9.125" />
+        <EntityTypeShape EntityType="FinanzasModel.Deuda" Width="1.5" PointX="10.375" PointY="0.75" />
+        <AssociationConnector Association="FinanzasModel.FK_Deuda_Bien" />
+        <AssociationConnector Association="FinanzasModel.FK_cuota_Deuda" />
+        <AssociationConnector Association="FinanzasModel.FK_Deuda_Periodo_gracia" />
+        <EntityTypeShape EntityType="FinanzasModel.Result" Width="1.5" PointX="7.5" PointY="3.25" />
+        <AssociationConnector Association="FinanzasModel.FK_Result_Bien" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

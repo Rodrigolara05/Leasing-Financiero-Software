@@ -1,0 +1,136 @@
+﻿@model IEnumerable<TF_Finanzas.Models.cuota>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout_CRUD_Admin.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.saldo_inicial)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.interes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.monto_cuota)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.amortizacion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.seguro_riesgo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.recompra)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Comision)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.saldo_final)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.depreciacion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ahorro_tributario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IGV)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.f_bruto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.f_igv)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.f_neto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PeriodoGracia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pagado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fecha_De_Pago)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Deuda.id)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.saldo_inicial)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.interes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.monto_cuota)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.amortizacion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.seguro_riesgo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.recompra)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Comision)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.saldo_final)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.depreciacion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ahorro_tributario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IGV)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.f_bruto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.f_igv)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.f_neto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PeriodoGracia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pagado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fecha_De_Pago)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Deuda.id)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,99 @@
+﻿
+@{
+    ViewBag.Title = "Index_Admin";
+    Layout = "~/Views/Shared/_Layout_Index_Admin.cshtml";
+}
+@{TF_Finanzas.Models.Usuario us = (TF_Finanzas.Models.Usuario)Session[TF_Finanzas.Constantes.SessionName.User];
+    string nombre = us.nombre;}
+<!DOCTYPE HTML>
+<!--
+    Retrospect by TEMPLATED
+    templated.co
+    Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+<body class="landing">
+
+    <!-- Banner -->
+    <section id="banner">
+        <i class="icon fa-diamond"></i>
+        <h2>Leasing Financiero</h2>
+        <p>Tu mejor opcion para financiamientos</p>
+        <ul class="actions">
+            <li><a href="#" class="button big special">Bienvenido @nombre</a></li>
+        </ul>
+    </section>
+    <!-- One -->
+    <section id="one" class="wrapper style1">
+        <div class="inner">
+            <article class="feature left">
+                <span class="image"><img src="~/images/pic01.jpg" alt="" /></span>
+                <div class="content">
+                    <h2>Nuestro objetivo</h2>
+                    <p>es lograr que prosperen los negocios de nuestros clientes, proporcionando facilidades y tasas atractivas para el beneficio del cliente. </p>
+                </div>
+            </article>
+            <article class="feature right">
+                <span class="image"><img src="~/images/pic02.jpg" alt="" /></span>
+                <div class="content">
+                    <h2>Nos caracteriza</h2>
+                    <p>Que mostramos los datos necesarios para los clientes, para que estén satisfechos y no se sientan abrumados con los números, lo cual nos permite que estos nos ofrezcan su confianza.</p>
+                </div>
+            </article>
+        </div>
+    </section>
+    <!-- Two -->
+    <section id="two" class="wrapper special">
+        <div class="inner">
+            <header class="major narrow">
+                <h2>Nuestras sedes</h2>
+                <p>Podrás encontrarnos en barranco, miraflores, surco y chorrillos</p>
+            </header>
+            <div class="image-grid">
+                <a href="#" class="image"><img src="~/images/pic03.jpg" alt="" height="240" /></a>
+                <a href="#" class="image"><img src="~/images/pic04.jpg" alt="" height="240" /></a>
+                <a href="#" class="image"><img src="~/images/pic05.jpg" alt="" height="240" /></a>
+                <a href="#" class="image"><img src="~/images/pic06.jpg" alt="" height="240" /></a>
+            </div>
+        </div>
+    </section>
+    <!-- Three -->
+    <section id="three" class="wrapper style3 special">
+        <div class="inner">
+            <header class="major narrow	">
+                <h2>Trabaja con nosotros</h2>
+                <p>De tal manera podremos ayudarte y formar parte de tu crecimiento empresarial. </p>
+            </header>
+        </div>
+    </section>
+    <!-- Four -->
+    <section id="four" class="wrapper style2 special">
+        <div class="inner">
+            <header class="major narrow">
+                <h2>Contáctanos</h2>
+                <p>Ingresa estos datos y nos comunicaremos contigo</p>
+            </header>
+            <form action="#" method="POST">
+                <div class="container 75%">
+                    <div class="row uniform 50%">
+                        <div class="6u 12u$(xsmall)">
+                            <input name="nombre" placeholder="Nombre" type="text" />
+                        </div>
+                        <div class="6u$ 12u$(xsmall)">
+                            <input name="teléfono" placeholder="teléfono" type="text" />
+                        </div>
+                        <div class="12u$">
+                            <textarea name="mensaje" placeholder="mensaje" rows="4"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <ul class="actions">
+                    <li><input type="submit" class="special" value="Enviar" /></li>
+                    <li><input type="reset" class="alt" value="Reiniciar" /></li>
+                </ul>
+            </form>
+        </div>
+    </section>
+
+</body>
+</html>

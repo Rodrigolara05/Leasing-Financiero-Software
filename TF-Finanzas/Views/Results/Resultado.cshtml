@@ -1,0 +1,120 @@
+﻿@model IEnumerable<TF_Finanzas.Models.Result>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout_CRUD_Admin.cshtml";
+}
+<!-- Main -->
+<div class="container">
+    <h2>Resultado del Prestamo</h2>
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IGV)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ValorVenta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MontoLeasing)
+            </th>
+           
+            <th>
+                @Html.DisplayNameFor(model => model.Numero_Cuotas)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Total_Cuotas)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Seguro_Riesgo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Intereses)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Amortizacion_Capital)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Seguro_contra_riesgo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Comision_periodica)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Recompra)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Desembolso_Total)
+            </th>
+          
+            <th>
+                @Html.DisplayNameFor(model => model.VAN_FlujoB)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VAN_FlujoN)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bien.nombre)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IGV)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ValorVenta)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MontoLeasing)
+                </td>
+               
+                <td>
+                    @Html.DisplayFor(modelItem => item.Numero_Cuotas)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Total_Cuotas)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Seguro_Riesgo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Intereses)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Amortizacion_Capital)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Seguro_contra_riesgo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Comision_periodica)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Recompra)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Desembolso_Total)
+                </td>
+                
+                <td>
+                    @Html.DisplayFor(modelItem => item.VAN_FlujoB)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.VAN_FlujoN)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Bien.nombre)
+                </td>
+                <td>
+                    @Html.ActionLink("Detalle", "Details", new { id = item.id }) 
+                </td>
+            </tr>
+        }
+
+    </table>
+    </div>

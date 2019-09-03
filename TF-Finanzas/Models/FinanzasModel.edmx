@@ -1,0 +1,594 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="FinanzasModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Bien">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="precio" Type="money" Nullable="false" />
+          <Property Name="idusuario" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="cuota">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_deuda" Type="int" Nullable="false" />
+          <Property Name="saldo_inicial" Type="money" Nullable="false" />
+          <Property Name="interes" Type="money" Nullable="false" />
+          <Property Name="monto_cuota" Type="money" Nullable="false" />
+          <Property Name="amortizacion" Type="money" Nullable="false" />
+          <Property Name="seguro_riesgo" Type="money" Nullable="false" />
+          <Property Name="recompra" Type="money" Nullable="false" />
+          <Property Name="Comision" Type="money" Nullable="false" />
+          <Property Name="saldo_final" Type="money" Nullable="false" />
+          <Property Name="depreciacion" Type="money" Nullable="false" />
+          <Property Name="ahorro-tributario" Type="money" Nullable="false" />
+          <Property Name="IGV" Type="money" Nullable="false" />
+          <Property Name="f_bruto" Type="money" Nullable="false" />
+          <Property Name="f_igv" Type="money" Nullable="false" />
+          <Property Name="f_neto" Type="money" Nullable="false" />
+          <Property Name="PeriodoGracia" Type="bit" Nullable="false" />
+          <Property Name="Pagado" Type="bit" Nullable="false" />
+          <Property Name="Fecha_De_Pago" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Deuda">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_bien" Type="int" Nullable="false" />
+          <Property Name="id_periodo_gracia" Type="int" Nullable="false" />
+          <Property Name="PG_Tiempo" Type="int" Nullable="false" />
+          <Property Name="nro_años" Type="int" Nullable="false" />
+          <Property Name="frecuencia" Type="int" Nullable="false" />
+          <Property Name="dias_x_año" Type="int" Nullable="false" />
+          <Property Name="TEA" Type="float" Nullable="false" />
+          <Property Name="IGV" Type="float" Nullable="false" />
+          <Property Name="i_renta" Type="float" Nullable="false" />
+          <Property Name="recompra" Type="float" Nullable="false" />
+          <Property Name="costo_notarial" Type="money" Nullable="false" />
+          <Property Name="costo_registral" Type="money" Nullable="false" />
+          <Property Name="tasacion" Type="money" Nullable="false" />
+          <Property Name="comision_de_estudio" Type="money" Nullable="false" />
+          <Property Name="comision_de_activacion" Type="money" Nullable="false" />
+          <Property Name="comision_periodica" Type="money" Nullable="false" />
+          <Property Name="seguro_riesgo" Type="float" Nullable="false" />
+          <Property Name="tasa_ks" Type="float" Nullable="false" />
+          <Property Name="tasa-wacc" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Periodo_gracia">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Tiempo" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Result">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Bien_id" Type="int" Nullable="false" />
+          <Property Name="IGV" Type="money" Nullable="false" />
+          <Property Name="ValorVenta" Type="money" Nullable="false" />
+          <Property Name="MontoLeasing" Type="money" Nullable="false" />
+          <Property Name="Porcentaje_TEP" Type="float" Nullable="false" />
+          <Property Name="Numero_Cuotas" Type="int" Nullable="false" />
+          <Property Name="Total_Cuotas" Type="int" Nullable="false" />
+          <Property Name="Seguro_Riesgo" Type="money" Nullable="false" />
+          <Property Name="Intereses" Type="money" Nullable="false" />
+          <Property Name="Amortizacion_Capital" Type="money" Nullable="false" />
+          <Property Name="Seguro_contra_riesgo" Type="money" Nullable="false" />
+          <Property Name="Comision_periodica" Type="money" Nullable="false" />
+          <Property Name="Recompra" Type="money" Nullable="false" />
+          <Property Name="Desembolso_Total" Type="money" Nullable="false" />
+          <Property Name="TCEA_FlujoB" Type="float" Nullable="false" />
+          <Property Name="TCEA_FlujoN" Type="float" Nullable="false" />
+          <Property Name="VAN_FlujoB" Type="money" Nullable="false" />
+          <Property Name="VAN_FlujoN" Type="money" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tipo_usuario">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="RUC" Type="bigint" Nullable="false" />
+          <Property Name="correo" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="contraseña" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="idTipoUsuario" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Bien_Usuario">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+          <End Role="Bien" Type="Self.Bien" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Bien">
+              <PropertyRef Name="idusuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_cuota_Deuda">
+          <End Role="Deuda" Type="Self.Deuda" Multiplicity="1" />
+          <End Role="cuota" Type="Self.cuota" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Deuda">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="cuota">
+              <PropertyRef Name="id_deuda" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Deuda_Bien">
+          <End Role="Bien" Type="Self.Bien" Multiplicity="1" />
+          <End Role="Deuda" Type="Self.Deuda" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bien">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Deuda">
+              <PropertyRef Name="id_bien" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Deuda_Periodo_gracia">
+          <End Role="Periodo_gracia" Type="Self.Periodo_gracia" Multiplicity="1" />
+          <End Role="Deuda" Type="Self.Deuda" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Periodo_gracia">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Deuda">
+              <PropertyRef Name="id_periodo_gracia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Result_Bien">
+          <End Role="Bien" Type="Self.Bien" Multiplicity="1" />
+          <End Role="Result" Type="Self.Result" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bien">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Result">
+              <PropertyRef Name="Bien_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuario_Tipo_usuario">
+          <End Role="Tipo_usuario" Type="Self.Tipo_usuario" Multiplicity="1" />
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tipo_usuario">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="idTipoUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="FinanzasModelStoreContainer">
+          <EntitySet Name="Bien" EntityType="Self.Bien" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="cuota" EntityType="Self.cuota" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Deuda" EntityType="Self.Deuda" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Periodo_gracia" EntityType="Self.Periodo_gracia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Result" EntityType="Self.Result" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tipo_usuario" EntityType="Self.Tipo_usuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Bien_Usuario" Association="Self.FK_Bien_Usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Bien" EntitySet="Bien" />
+          </AssociationSet>
+          <AssociationSet Name="FK_cuota_Deuda" Association="Self.FK_cuota_Deuda">
+            <End Role="Deuda" EntitySet="Deuda" />
+            <End Role="cuota" EntitySet="cuota" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Deuda_Bien" Association="Self.FK_Deuda_Bien">
+            <End Role="Bien" EntitySet="Bien" />
+            <End Role="Deuda" EntitySet="Deuda" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Deuda_Periodo_gracia" Association="Self.FK_Deuda_Periodo_gracia">
+            <End Role="Periodo_gracia" EntitySet="Periodo_gracia" />
+            <End Role="Deuda" EntitySet="Deuda" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Result_Bien" Association="Self.FK_Result_Bien">
+            <End Role="Bien" EntitySet="Bien" />
+            <End Role="Result" EntitySet="Result" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuario_Tipo_usuario" Association="Self.FK_Usuario_Tipo_usuario">
+            <End Role="Tipo_usuario" EntitySet="Tipo_usuario" />
+            <End Role="Usuario" EntitySet="Usuario" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="FinanzasModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Tipo_usuario">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Usuarios" Relationship="FinanzasModel.FK_Usuario_Tipo_usuario" FromRole="Tipo_usuario" ToRole="Usuario" />
+        </EntityType>
+        <EntityContainer Name="FinanzasEntitiesContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Tipo_usuario" EntityType="Self.Tipo_usuario" />
+          <EntitySet Name="Usuarios" EntityType="FinanzasModel.Usuario" />
+          <AssociationSet Name="FK_Usuario_Tipo_usuario" Association="FinanzasModel.FK_Usuario_Tipo_usuario">
+            <End Role="Tipo_usuario" EntitySet="Tipo_usuario" />
+            <End Role="Usuario" EntitySet="Usuarios" />
+          </AssociationSet>
+          <EntitySet Name="Periodo_gracia" EntityType="FinanzasModel.Periodo_gracia" />
+          <EntitySet Name="Biens" EntityType="FinanzasModel.Bien" />
+          <AssociationSet Name="FK_Bien_Usuario" Association="FinanzasModel.FK_Bien_Usuario">
+            <End Role="Usuario" EntitySet="Usuarios" />
+            <End Role="Bien" EntitySet="Biens" />
+          </AssociationSet>
+          <EntitySet Name="cuotas" EntityType="FinanzasModel.cuota" />
+          <EntitySet Name="Deudas" EntityType="FinanzasModel.Deuda" />
+          <AssociationSet Name="FK_Deuda_Bien" Association="FinanzasModel.FK_Deuda_Bien">
+            <End Role="Bien" EntitySet="Biens" />
+            <End Role="Deuda" EntitySet="Deudas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_cuota_Deuda" Association="FinanzasModel.FK_cuota_Deuda">
+            <End Role="Deuda" EntitySet="Deudas" />
+            <End Role="cuota" EntitySet="cuotas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Deuda_Periodo_gracia" Association="FinanzasModel.FK_Deuda_Periodo_gracia">
+            <End Role="Periodo_gracia" EntitySet="Periodo_gracia" />
+            <End Role="Deuda" EntitySet="Deudas" />
+          </AssociationSet>
+          <EntitySet Name="Results" EntityType="FinanzasModel.Result" />
+          <AssociationSet Name="FK_Result_Bien" Association="FinanzasModel.FK_Result_Bien">
+            <End Role="Bien" EntitySet="Biens" />
+            <End Role="Result" EntitySet="Results" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RUC" Type="Int64" Nullable="false" />
+          <Property Name="correo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="contraseña" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="idTipoUsuario" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Tipo_usuario" Relationship="FinanzasModel.FK_Usuario_Tipo_usuario" FromRole="Usuario" ToRole="Tipo_usuario" />
+          <NavigationProperty Name="Biens" Relationship="FinanzasModel.FK_Bien_Usuario" FromRole="Usuario" ToRole="Bien" />
+        </EntityType>
+        <Association Name="FK_Usuario_Tipo_usuario">
+          <End Type="FinanzasModel.Tipo_usuario" Role="Tipo_usuario" Multiplicity="1" />
+          <End Type="FinanzasModel.Usuario" Role="Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tipo_usuario">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="idTipoUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Periodo_gracia">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Tiempo" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Deudas" Relationship="FinanzasModel.FK_Deuda_Periodo_gracia" FromRole="Periodo_gracia" ToRole="Deuda" />
+        </EntityType>
+        <EntityType Name="Bien">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="precio" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="idusuario" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Usuario" Relationship="FinanzasModel.FK_Bien_Usuario" FromRole="Bien" ToRole="Usuario" />
+          <NavigationProperty Name="Deudas" Relationship="FinanzasModel.FK_Deuda_Bien" FromRole="Bien" ToRole="Deuda" />
+          <NavigationProperty Name="Results" Relationship="FinanzasModel.FK_Result_Bien" FromRole="Bien" ToRole="Result" />
+        </EntityType>
+        <Association Name="FK_Bien_Usuario">
+          <End Type="FinanzasModel.Usuario" Role="Usuario" Multiplicity="1" />
+          <End Type="FinanzasModel.Bien" Role="Bien" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Bien">
+              <PropertyRef Name="idusuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="cuota">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_deuda" Type="Int32" Nullable="false" />
+          <Property Name="saldo_inicial" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="interes" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="monto_cuota" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="amortizacion" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="seguro_riesgo" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="recompra" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="Comision" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="saldo_final" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="depreciacion" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="ahorro_tributario" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="IGV" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="f_bruto" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="f_igv" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="f_neto" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="PeriodoGracia" Type="Boolean" Nullable="false" />
+          <Property Name="Pagado" Type="Boolean" Nullable="false" />
+          <Property Name="Fecha_De_Pago" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Deuda" Relationship="FinanzasModel.FK_cuota_Deuda" FromRole="cuota" ToRole="Deuda" />
+        </EntityType>
+        <EntityType Name="Deuda">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_bien" Type="Int32" Nullable="false" />
+          <Property Name="id_periodo_gracia" Type="Int32" Nullable="false" />
+          <Property Name="PG_Tiempo" Type="Int32" Nullable="false" />
+          <Property Name="nro_años" Type="Int32" Nullable="false" />
+          <Property Name="frecuencia" Type="Int32" Nullable="false" />
+          <Property Name="dias_x_año" Type="Int32" Nullable="false" />
+          <Property Name="TEA" Type="Double" Nullable="false" />
+          <Property Name="IGV" Type="Double" Nullable="false" />
+          <Property Name="i_renta" Type="Double" Nullable="false" />
+          <Property Name="recompra" Type="Double" Nullable="false" />
+          <Property Name="costo_notarial" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="costo_registral" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="tasacion" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="comision_de_estudio" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="comision_de_activacion" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="comision_periodica" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="seguro_riesgo" Type="Double" Nullable="false" />
+          <Property Name="tasa_ks" Type="Double" Nullable="false" />
+          <Property Name="tasa_wacc" Type="Double" Nullable="false" />
+          <NavigationProperty Name="Bien" Relationship="FinanzasModel.FK_Deuda_Bien" FromRole="Deuda" ToRole="Bien" />
+          <NavigationProperty Name="cuotas" Relationship="FinanzasModel.FK_cuota_Deuda" FromRole="Deuda" ToRole="cuota" />
+          <NavigationProperty Name="Periodo_gracia" Relationship="FinanzasModel.FK_Deuda_Periodo_gracia" FromRole="Deuda" ToRole="Periodo_gracia" />
+        </EntityType>
+        <Association Name="FK_Deuda_Bien">
+          <End Type="FinanzasModel.Bien" Role="Bien" Multiplicity="1" />
+          <End Type="FinanzasModel.Deuda" Role="Deuda" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bien">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Deuda">
+              <PropertyRef Name="id_bien" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_cuota_Deuda">
+          <End Type="FinanzasModel.Deuda" Role="Deuda" Multiplicity="1" />
+          <End Type="FinanzasModel.cuota" Role="cuota" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Deuda">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="cuota">
+              <PropertyRef Name="id_deuda" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Deuda_Periodo_gracia">
+          <End Type="FinanzasModel.Periodo_gracia" Role="Periodo_gracia" Multiplicity="1" />
+          <End Type="FinanzasModel.Deuda" Role="Deuda" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Periodo_gracia">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Deuda">
+              <PropertyRef Name="id_periodo_gracia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Result">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Bien_id" Type="Int32" Nullable="false" />
+          <Property Name="IGV" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="ValorVenta" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="MontoLeasing" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="Porcentaje_TEP" Type="Double" Nullable="false" />
+          <Property Name="Numero_Cuotas" Type="Int32" Nullable="false" />
+          <Property Name="Total_Cuotas" Type="Int32" Nullable="false" />
+          <Property Name="Seguro_Riesgo" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="Intereses" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="Amortizacion_Capital" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="Seguro_contra_riesgo" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="Comision_periodica" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="Recompra" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="Desembolso_Total" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="TCEA_FlujoB" Type="Double" Nullable="false" />
+          <Property Name="TCEA_FlujoN" Type="Double" Nullable="false" />
+          <Property Name="VAN_FlujoB" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="VAN_FlujoN" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <NavigationProperty Name="Bien" Relationship="FinanzasModel.FK_Result_Bien" FromRole="Result" ToRole="Bien" />
+        </EntityType>
+        <Association Name="FK_Result_Bien">
+          <End Type="FinanzasModel.Bien" Role="Bien" Multiplicity="1" />
+          <End Type="FinanzasModel.Result" Role="Result" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bien">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Result">
+              <PropertyRef Name="Bien_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="FinanzasModelStoreContainer" CdmEntityContainer="FinanzasEntitiesContext">
+          <EntitySetMapping Name="Tipo_usuario">
+            <EntityTypeMapping TypeName="FinanzasModel.Tipo_usuario">
+              <MappingFragment StoreEntitySet="Tipo_usuario">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuarios">
+            <EntityTypeMapping TypeName="FinanzasModel.Usuario">
+              <MappingFragment StoreEntitySet="Usuario">
+                <ScalarProperty Name="idTipoUsuario" ColumnName="idTipoUsuario" />
+                <ScalarProperty Name="contraseña" ColumnName="contraseña" />
+                <ScalarProperty Name="correo" ColumnName="correo" />
+                <ScalarProperty Name="RUC" ColumnName="RUC" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Periodo_gracia">
+            <EntityTypeMapping TypeName="FinanzasModel.Periodo_gracia">
+              <MappingFragment StoreEntitySet="Periodo_gracia">
+                <ScalarProperty Name="Tiempo" ColumnName="Tiempo" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Biens">
+            <EntityTypeMapping TypeName="FinanzasModel.Bien">
+              <MappingFragment StoreEntitySet="Bien">
+                <ScalarProperty Name="idusuario" ColumnName="idusuario" />
+                <ScalarProperty Name="precio" ColumnName="precio" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cuotas">
+            <EntityTypeMapping TypeName="FinanzasModel.cuota">
+              <MappingFragment StoreEntitySet="cuota">
+                <ScalarProperty Name="Fecha_De_Pago" ColumnName="Fecha_De_Pago" />
+                <ScalarProperty Name="Pagado" ColumnName="Pagado" />
+                <ScalarProperty Name="PeriodoGracia" ColumnName="PeriodoGracia" />
+                <ScalarProperty Name="f_neto" ColumnName="f_neto" />
+                <ScalarProperty Name="f_igv" ColumnName="f_igv" />
+                <ScalarProperty Name="f_bruto" ColumnName="f_bruto" />
+                <ScalarProperty Name="IGV" ColumnName="IGV" />
+                <ScalarProperty Name="ahorro_tributario" ColumnName="ahorro-tributario" />
+                <ScalarProperty Name="depreciacion" ColumnName="depreciacion" />
+                <ScalarProperty Name="saldo_final" ColumnName="saldo_final" />
+                <ScalarProperty Name="Comision" ColumnName="Comision" />
+                <ScalarProperty Name="recompra" ColumnName="recompra" />
+                <ScalarProperty Name="seguro_riesgo" ColumnName="seguro_riesgo" />
+                <ScalarProperty Name="amortizacion" ColumnName="amortizacion" />
+                <ScalarProperty Name="monto_cuota" ColumnName="monto_cuota" />
+                <ScalarProperty Name="interes" ColumnName="interes" />
+                <ScalarProperty Name="saldo_inicial" ColumnName="saldo_inicial" />
+                <ScalarProperty Name="id_deuda" ColumnName="id_deuda" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Deudas">
+            <EntityTypeMapping TypeName="FinanzasModel.Deuda">
+              <MappingFragment StoreEntitySet="Deuda">
+                <ScalarProperty Name="tasa_wacc" ColumnName="tasa-wacc" />
+                <ScalarProperty Name="tasa_ks" ColumnName="tasa_ks" />
+                <ScalarProperty Name="seguro_riesgo" ColumnName="seguro_riesgo" />
+                <ScalarProperty Name="comision_periodica" ColumnName="comision_periodica" />
+                <ScalarProperty Name="comision_de_activacion" ColumnName="comision_de_activacion" />
+                <ScalarProperty Name="comision_de_estudio" ColumnName="comision_de_estudio" />
+                <ScalarProperty Name="tasacion" ColumnName="tasacion" />
+                <ScalarProperty Name="costo_registral" ColumnName="costo_registral" />
+                <ScalarProperty Name="costo_notarial" ColumnName="costo_notarial" />
+                <ScalarProperty Name="recompra" ColumnName="recompra" />
+                <ScalarProperty Name="i_renta" ColumnName="i_renta" />
+                <ScalarProperty Name="IGV" ColumnName="IGV" />
+                <ScalarProperty Name="TEA" ColumnName="TEA" />
+                <ScalarProperty Name="dias_x_año" ColumnName="dias_x_año" />
+                <ScalarProperty Name="frecuencia" ColumnName="frecuencia" />
+                <ScalarProperty Name="nro_años" ColumnName="nro_años" />
+                <ScalarProperty Name="PG_Tiempo" ColumnName="PG_Tiempo" />
+                <ScalarProperty Name="id_periodo_gracia" ColumnName="id_periodo_gracia" />
+                <ScalarProperty Name="id_bien" ColumnName="id_bien" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Results">
+            <EntityTypeMapping TypeName="FinanzasModel.Result">
+              <MappingFragment StoreEntitySet="Result">
+                <ScalarProperty Name="VAN_FlujoN" ColumnName="VAN_FlujoN" />
+                <ScalarProperty Name="VAN_FlujoB" ColumnName="VAN_FlujoB" />
+                <ScalarProperty Name="TCEA_FlujoN" ColumnName="TCEA_FlujoN" />
+                <ScalarProperty Name="TCEA_FlujoB" ColumnName="TCEA_FlujoB" />
+                <ScalarProperty Name="Desembolso_Total" ColumnName="Desembolso_Total" />
+                <ScalarProperty Name="Recompra" ColumnName="Recompra" />
+                <ScalarProperty Name="Comision_periodica" ColumnName="Comision_periodica" />
+                <ScalarProperty Name="Seguro_contra_riesgo" ColumnName="Seguro_contra_riesgo" />
+                <ScalarProperty Name="Amortizacion_Capital" ColumnName="Amortizacion_Capital" />
+                <ScalarProperty Name="Intereses" ColumnName="Intereses" />
+                <ScalarProperty Name="Seguro_Riesgo" ColumnName="Seguro_Riesgo" />
+                <ScalarProperty Name="Total_Cuotas" ColumnName="Total_Cuotas" />
+                <ScalarProperty Name="Numero_Cuotas" ColumnName="Numero_Cuotas" />
+                <ScalarProperty Name="Porcentaje_TEP" ColumnName="Porcentaje_TEP" />
+                <ScalarProperty Name="MontoLeasing" ColumnName="MontoLeasing" />
+                <ScalarProperty Name="ValorVenta" ColumnName="ValorVenta" />
+                <ScalarProperty Name="IGV" ColumnName="IGV" />
+                <ScalarProperty Name="Bien_id" ColumnName="Bien_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

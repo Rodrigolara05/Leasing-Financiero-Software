@@ -1,0 +1,142 @@
+﻿@model IEnumerable<TF_Finanzas.Models.Deuda>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout_CRUD_Admin.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PG_Tiempo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nro_años)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.frecuencia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dias_x_año)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TEA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IGV)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.i_renta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.recompra)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.costo_notarial)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.costo_registral)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tasacion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.comision_de_estudio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.comision_de_activacion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.comision_periodica)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.seguro_riesgo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tasa_ks)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tasa_wacc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Bien.nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Periodo_gracia.Descripcion)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PG_Tiempo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nro_años)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.frecuencia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dias_x_año)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TEA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IGV)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.i_renta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.recompra)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.costo_notarial)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.costo_registral)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tasacion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.comision_de_estudio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.comision_de_activacion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.comision_periodica)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.seguro_riesgo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tasa_ks)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tasa_wacc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Bien.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Periodo_gracia.Descripcion)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

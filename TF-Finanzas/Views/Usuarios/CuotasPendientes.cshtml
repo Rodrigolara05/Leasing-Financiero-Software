@@ -1,0 +1,108 @@
+﻿@model IEnumerable<TF_Finanzas.Models.cuota>
+
+@{
+    ViewBag.Title = "cuotas_pendientes";
+    Layout = "~/Views/Shared/_Layout_CRUD_Admin.cshtml";
+}
+
+<!-- Main -->
+<div class="container">
+    <h2>Cuotas pendientes</h2>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PeriodoGracia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.saldo_inicial)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fecha_De_Pago)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.amortizacion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.interes)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.seguro_riesgo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.monto_cuota)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.saldo_final)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pagado)
+            </th>
+           
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                @{
+                    bool PG = item.PeriodoGracia;
+                    if (PG == true)
+                    {
+                        <td>
+                            SI
+                        </td>
+                    }
+                    else
+                    {
+                        <td>
+                            NO
+                        </td>
+                    }
+                }
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.saldo_inicial)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fecha_De_Pago)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.amortizacion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.interes)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.seguro_riesgo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.monto_cuota)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.saldo_final)
+                </td>
+
+                @{
+                    bool pay = item.Pagado;
+                    if (pay == true)
+                    {
+                        <td>
+                            SI
+                        </td>
+                    }
+                    else
+                    {
+                        <td>
+                            NO
+                        </td>
+                    }
+                }
+                
+                <td>
+                    @Html.ActionLink("Detalle", "Detalle_Cuota", new { id = item.id })
+                </td>
+            </tr>
+                    }
+
+    </table>
+</div>

@@ -1,0 +1,192 @@
+﻿@model TF_Finanzas.Models.Deuda
+
+@{
+    ViewBag.Title = "Crear";
+    Layout = "~/Views/Shared/_Layout_CRUD_Admin.cshtml";
+}
+<!-- Main -->
+<div class="container">
+    <h2>Datos del Prestamo</h2>
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>Leasing Financiero</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <table class="table">
+                <tr>
+                    <td>
+                        <div class="form-group">
+               
+                            @Html.LabelFor(model => model.id_bien, "Activo", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.DropDownList("id_bien", null, htmlAttributes: new { @class = "form-control", Title = "Activo a Elegir"})
+                                
+                                
+                                 @Html.ValidationMessageFor(model => model.id_bien, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.id_periodo_gracia, "P.G", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.DropDownList("id_periodo_gracia", null, htmlAttributes: new { @class = "form-control", Title = "Periodo de Gracia\nTotal: No se paga nada\nParcial: Solo Intereses\nNada   : Pago Completo" })
+                                @Html.ValidationMessageFor(model => model.id_periodo_gracia, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.PG_Tiempo, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.PG_Tiempo, new { htmlAttributes = new { @class = "form-control", Title = "Tiempo efectivo del Periodo de Gracia" } })
+                                @Html.ValidationMessageFor(model => model.PG_Tiempo, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.nro_años,  htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.nro_años, new { htmlAttributes = new { @class = "form-control", Title = "Numero de años de la deuda" } })
+                                @Html.ValidationMessageFor(model => model.nro_años, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.frecuencia, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.frecuencia, new { htmlAttributes = new { @class = "form-control", Title = "Frecuencia de Pago en dias" } })
+                                @Html.ValidationMessageFor(model => model.frecuencia, "", new { @class = "text-danger" })
+                            </div>
+                            
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.dias_x_año, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.dias_x_año, new { htmlAttributes = new { @class = "form-control", Title = "Dias por año:\nOrdinario: 360\nCalendario: 365" } })
+                                @Html.ValidationMessageFor(model => model.dias_x_año, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.TEA, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.TEA, new { htmlAttributes = new { @class = "form-control", Title = "Porcentaje de TEA (Tasa Efectiva Anual)" } })
+                                @Html.ValidationMessageFor(model => model.TEA, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.i_renta, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.i_renta, new { htmlAttributes = new { @class = "form-control",Title = "Porcentaje de Impuesto a la Renta" } })
+                                @Html.ValidationMessageFor(model => model.i_renta, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.recompra, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.recompra, new { htmlAttributes = new { @class = "form-control",Title = "Porcentaje de recompra" } })
+                                @Html.ValidationMessageFor(model => model.recompra, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.costo_notarial, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.costo_notarial, new { htmlAttributes = new { @class = "form-control", Title = "Costes Notariales:\nEn caso no se incluya en el contrato colocar el valor de 0" } })
+                                @Html.ValidationMessageFor(model => model.costo_notarial, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.costo_registral, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.costo_registral, new { htmlAttributes = new { @class = "form-control", Title = "Costes Registrales:\nEn caso no se incluya en el contrato colocar el valor de 0" } })
+                                @Html.ValidationMessageFor(model => model.costo_registral, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </td>
+
+                    <td>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.tasacion, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.tasacion, new { htmlAttributes = new { @class = "form-control", Title = "Tasacion:\nEn caso no se incluya en el contrato colocar el valor de 0" } })
+                                @Html.ValidationMessageFor(model => model.tasacion, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.comision_de_estudio, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.comision_de_estudio, new { htmlAttributes = new { @class = "form-control", Title = "Comision de Estudio:\nEn caso no se incluya en el contrato colocar el valor de 0" } })
+                                @Html.ValidationMessageFor(model => model.comision_de_estudio, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.comision_de_activacion, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.comision_de_activacion, new { htmlAttributes = new { @class = "form-control", Title = "Comision de Activación:\nEn caso no se incluya en el contrato colocar el valor de 0" } })
+                                @Html.ValidationMessageFor(model => model.comision_de_activacion, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.comision_periodica, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.comision_periodica, new { htmlAttributes = new { @class = "form-control", Title = "Comision Periodica" } })
+                                @Html.ValidationMessageFor(model => model.comision_periodica, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.seguro_riesgo, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.seguro_riesgo, new { htmlAttributes = new { @class = "form-control", Title = "Porcentaje de Seguro de Riesgo" } })
+                                @Html.ValidationMessageFor(model => model.seguro_riesgo, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.tasa_ks, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.tasa_ks, new { htmlAttributes = new { @class = "form-control", Title = "Tasa de Descuento Ks (COK)" } })
+                                @Html.ValidationMessageFor(model => model.tasa_ks, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.tasa_wacc, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.tasa_wacc, new { htmlAttributes = new { @class = "form-control", Title = "Tasa de Descuento WACC" } })
+                                @Html.ValidationMessageFor(model => model.tasa_wacc, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Siguiente" class="btn btn-default" />
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    }
+
+</div>
+@section Scripts {
+    @Scripts.Render("~/Scripts/site.js")
+}

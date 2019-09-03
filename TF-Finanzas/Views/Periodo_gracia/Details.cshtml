@@ -1,0 +1,35 @@
+﻿@model TF_Finanzas.Models.Periodo_gracia
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout1_CRUD.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Periodo_gracia</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tiempo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tiempo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

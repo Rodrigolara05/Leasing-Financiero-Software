@@ -1,0 +1,171 @@
+﻿@model TF_Finanzas.Models.Deuda
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout_CRUD_Admin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Deuda</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PG_Tiempo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PG_Tiempo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nro_años)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nro_años)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.frecuencia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.frecuencia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dias_x_año)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dias_x_año)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TEA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TEA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IGV)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IGV)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.i_renta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.i_renta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.recompra)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.recompra)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.costo_notarial)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.costo_notarial)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.costo_registral)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.costo_registral)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tasacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tasacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.comision_de_estudio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.comision_de_estudio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.comision_de_activacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.comision_de_activacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.comision_periodica)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.comision_periodica)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.seguro_riesgo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.seguro_riesgo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tasa_ks)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tasa_ks)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tasa_wacc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tasa_wacc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Bien.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bien.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Periodo_gracia.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Periodo_gracia.Descripcion)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

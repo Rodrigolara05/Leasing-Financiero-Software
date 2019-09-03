@@ -1,0 +1,161 @@
+﻿@model TF_Finanzas.Models.Result
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout_CRUD_Admin.cshtml";
+}
+<!-- Main -->
+<div class="container">
+    <h2>Detalle del resultado</h2>
+
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.IGV)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.IGV)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ValorVenta)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ValorVenta)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.MontoLeasing)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.MontoLeasing)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Porcentaje_TEP)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Porcentaje_TEP)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Numero_Cuotas)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Numero_Cuotas)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Total_Cuotas)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Total_Cuotas)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Seguro_Riesgo)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Seguro_Riesgo)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Intereses)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Intereses)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Amortizacion_Capital)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Amortizacion_Capital)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Seguro_contra_riesgo)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Seguro_contra_riesgo)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Comision_periodica)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Comision_periodica)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Recompra)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Recompra)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Desembolso_Total)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Desembolso_Total)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TCEA_FlujoB)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TCEA_FlujoB)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TCEA_FlujoN)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TCEA_FlujoN)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.VAN_FlujoB)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.VAN_FlujoB)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.VAN_FlujoN)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.VAN_FlujoN)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Bien.nombre)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Bien.nombre)
+            </dd>
+
+        </dl>
+    </div>
+   
+</div>
